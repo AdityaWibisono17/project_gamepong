@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ballscript : MonoBehaviour
 {
-    //public int speed = 30; 
+    public int speed = 30;     
     // Start is called before the first frame update
     public Rigidbody2D sesuatu;
-
+    public GameObject masterScript;
     public Animator animtr;
     void Start()
     {
@@ -32,7 +32,8 @@ public class ballscript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other){
         if(other.collider.name=="WallKanan" || other.collider.name=="WallKiri"){
-            StartCoroutine(jeda());
+            masterScript.GetComponent<ScoringScript>().UpdateScore(other.collider.name);
+            StartCoroutine(jeda()); //untuk pindah ke tengah
         }
     }
     IEnumerator jeda(){
@@ -49,3 +50,4 @@ public class ballscript : MonoBehaviour
         animtr.SetBool("IsMove", true);
     } 
 }
+ 
