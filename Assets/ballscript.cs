@@ -9,6 +9,7 @@ public class ballscript : MonoBehaviour
     public Rigidbody2D sesuatu;
     public GameObject masterScript;
     public Animator animtr;
+    public AudioSource hitEffect;
     void Start()
     {
         int x = Random.Range(0,2) * 2 - 1; //nilai x bisa bernilai 0 atau 1
@@ -34,6 +35,9 @@ public class ballscript : MonoBehaviour
         if(other.collider.name=="WallKanan" || other.collider.name=="WallKiri"){
             masterScript.GetComponent<ScoringScript>().UpdateScore(other.collider.name);
             StartCoroutine(jeda()); //untuk pindah ke tengah
+        }
+        if(other.collider.tag=="Player"){
+            hitEffect.Play();
         }
     }
     IEnumerator jeda(){

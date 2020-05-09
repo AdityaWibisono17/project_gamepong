@@ -45,6 +45,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\BgScript.cs" />
      <Compile Include="Assets\EndingScript.cs" />
      <Compile Include="Assets\PlayScript.cs" />
      <Compile Include="Assets\ScoringScript.cs" />
